@@ -1,0 +1,15 @@
+apiVersion: v2
+name: otus-nginx
+description: custom nginx
+
+type: application
+
+version: 1.0.0
+
+appVersion: "1.0"
+
+
+dependencies:
+- name: mysql
+  version: 11.1.7
+  repository: oci://registry-1.docker.io/bitnamicharts

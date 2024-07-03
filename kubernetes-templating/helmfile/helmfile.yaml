@@ -1,0 +1,45 @@
+repositories:
+- name: bitnami
+  url: registry-1.docker.io/bitnamicharts
+  oci: true
+
+bases:
+- environments.yaml
+
+templates:
+  default: &default
+    chart: bitnami/kafka
+    version: 29.3.6
+    namespace: {{ .Environment.Name }}
+    createNamespace: true
+
+commonLabels:
+  app: kafka-{{ .Environment.Name }}
+
+releases:
+- name: kafka-prod
+  installed: {{ eq .Environment.Name 'prod' | toYaml }}
+  # <<: *default
+  set:
+  - name: broker.replicaCount
+    value: 5
+  - name: image.tag
+    value: 3.5.2
+  - name: listeners.client.protocol
+    value: SASL_PLAINTEXT
+  - name: listeners.interbroker.protocol
+    value: SASL_PLAINTEXT
+- name: kafka-dev
+  # <<: *default
+  installed: {{ eq .Environment.Name "dev" | toYaml }}
+  set:
+  - name: broker.replicaCount
+    value: 1
+  - name: controller.replicaCount
+    value: 1
+  - name: image.tag
+    value: latest
+  - name: listeners.client.protocol
+    value: PLAINTEXT
+  - name: listeners.interbroker.protocol
+    value: PLAINTEXT
