@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "otus-nginx.fullname" . }}
+  labels:
+    {{- include "otus-nginx.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "otus-nginx.selectorLabels" . | nindent 4 }}
+  endpoints:
+    - port: metrics
+      interval: 15s

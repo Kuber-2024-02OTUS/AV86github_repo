@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-cm
+  namespace: homework
+data:
+  nginx: top
+  apache: tojenorm
+  file: |
+    some_value: 1
+    second_value: 2

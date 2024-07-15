@@ -1,0 +1,9 @@
+apiVersion: v2
+name: otus-nginx
+description: custom nginx
+
+type: application
+
+version: 1.0.0
+
+appVersion: "3.0-metrics"
