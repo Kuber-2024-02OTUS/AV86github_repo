@@ -1,0 +1,6 @@
+anton@master:~$ k get nodes -o wide
+NAME      STATUS   ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+master    Ready    control-plane   32m     v1.29.7   192.168.31.62    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker1   Ready    <none>          4m57s   v1.29.7   192.168.31.146   <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker2   Ready    <none>          3m29s   v1.29.7   192.168.31.34    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker3   Ready    <none>          114s    v1.29.7   192.168.31.119   <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12

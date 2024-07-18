@@ -1,0 +1,6 @@
+anton@master:/etc/apt/sources.list.d$ k get nodes -o wide
+NAME      STATUS   ROLES           AGE    VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+master    Ready    control-plane   126m   v1.30.2   192.168.31.62    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker1   Ready    <none>          98m    v1.30.2   192.168.31.146   <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker2   Ready    <none>          97m    v1.30.2   192.168.31.34    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
+worker3   Ready    <none>          95m    v1.30.2   192.168.31.119   <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12
