@@ -1,0 +1,23 @@
+k label nodes worker3 infra=true
+k taint nodes worker3 node-role=infra:NoSchedule
+
+kubectl get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+
+
+
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+https://github.com/grafana/loki/tree/main/production/helm/loki
+k create ns logging
+helm upgrade --install -n logging -f ./single-binary.yaml loki grafana/loki --version 6.7.1
+
+
+helm upgrade --install -n logging -f ./values.yaml promtail grafana/promtail --version 6.16.4
+
+
+helm -n monitoring upgrade  prometheus prometheus-community/kube-prometheus-stack  -f values.yaml
+
+
+
+
