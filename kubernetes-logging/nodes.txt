@@ -1,0 +1,16 @@
+k get nodes -o wide --show-labels
+NAME      STATUS   ROLES           AGE     VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME     LABELS
+master    Ready    control-plane   6d      v1.30.2   192.168.31.62    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=master,kubernetes.io/os=linux,node-role.kubernetes.io/control-plane=,node.kubernetes.io/exclude-from-external-load-balancers=
+worker1   Ready    <none>          5d23h   v1.30.2   192.168.31.146   <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker1,kubernetes.io/os=linux,minio=yes
+worker2   Ready    <none>          5d23h   v1.30.2   192.168.31.34    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker2,kubernetes.io/os=linux,minio=yes
+worker3   Ready    <none>          2m28s   v1.30.2   192.168.31.58    <none>        Ubuntu 22.04.4 LTS   5.15.0-116-generic   containerd://1.7.12   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,infra=true,kubernetes.io/arch=amd64,kubernetes.io/hostname=worker3,kubernetes.io/os=linux
+
+
+
+k get nodes -o custom-columns=NAME:.metadata.name,TAINTS:.spec.taints
+NAME      TAINTS
+master    [map[effect:NoSchedule key:node-role.kubernetes.io/control-plane]]
+worker1   <none>
+worker2   <none>
+worker3   [map[effect:NoSchedule key:node-role value:infra]]
+
