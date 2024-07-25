@@ -1,0 +1,6 @@
+helm repo add argo https://argoproj.github.io/argo-helm
+helm install -n argocd argocd argo/argo-cd --version 7.3.11 -f ./values.yaml
+
+k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+argocd login localhost:8081 --insecure --grpc-web
+argocd account update-password --insecure --grpc-web
