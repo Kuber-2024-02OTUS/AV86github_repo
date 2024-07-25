@@ -1,0 +1,129 @@
+server:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+  extraArgs:
+  - --insecure
+
+dex:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+redis:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+redisSecretInit:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+repoServer:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+applicationSet:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+notifications:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"
+
+controller:
+  tolerations:
+    - key: "node-role"
+      operator: "Equal"
+      value: "infra"
+      effect: "NoSchedule"
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: infra
+            operator: In
+            values:
+            - "true"

@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: templating
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
+spec:
+  project: homework
+  source:
+    repoURL: https://github.com/Kuber-2024-02OTUS/AV86github_repo
+    targetRevision: HEAD
+    path: kubernetes-templating/otus-nginx
+    helm: 
+      releaseName: nginx   
+      values: |
+        replicaCount: 1
+      valueFiles:
+      - values.yaml 
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: HomeworkHelm
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true 
