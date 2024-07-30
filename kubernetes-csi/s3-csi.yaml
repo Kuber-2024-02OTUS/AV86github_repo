@@ -1,0 +1,7 @@
+storageClass:
+  singleBucket: csi
+
+secret:
+  accessKey: bXiqorrwp0GCvKBImdoG
+  secretKey: cIpeHOLTb4ryjB4JfiGKo0lXtexU4Wm2knBQEa1t
+  endpoint: http://mi.minio.svc.cluster.local:9000
