@@ -1,0 +1,11 @@
+ k apply -f pvc.yaml
+persistentvolumeclaim/csi-s3-pvc created
+[antonv@homepc kubernetes-csi  (git:kubernetes-csi) (⎈|infra:default)]
+$ k get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pvc-ade90a4b-4987-46a4-9268-bc1b5612371c   5Gi        RWX            Delete           Bound    default/csi-s3-pvc   csi-s3         <unset>                          9s
+[antonv@homepc kubernetes-csi  (git:kubernetes-csi) (⎈|infra:default)]
+$ k get pvc
+NAME         STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+csi-s3-pvc   Bound    pvc-ade90a4b-4987-46a4-9268-bc1b5612371c   5Gi        RWX            csi-s3         <unset>                 11s
+[antonv@homepc kubernetes-csi  (git:kubernetes-csi) (⎈|infra:default)]

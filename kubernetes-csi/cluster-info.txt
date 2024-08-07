@@ -1,0 +1,34 @@
+antonv@homepc ~   (⎈|infra:minio)]
+$ k get nodes
+NAME      STATUS   ROLES           AGE   VERSION
+infrac1   Ready    control-plane   26h   v1.30.3
+infraw1   Ready    <none>          25h   v1.30.3
+infraw2   Ready    <none>          22h   v1.30.3
+[antonv@homepc ~   (⎈|infra:minio)]
+$ k get po -A
+NAMESPACE       NAME                                    READY   STATUS      RESTARTS       AGE
+default         demo-7fff9cff84-rjsqz                   1/1     Running     1 (110m ago)   25h
+ingress-nginx   ingress-nginx-admission-create-ktxrm    0/1     Completed   0              25h
+ingress-nginx   ingress-nginx-admission-patch-kl8hc     0/1     Completed   1              25h
+ingress-nginx   ingress-nginx-controller-666487-6fd8f   1/1     Running     1 (110m ago)   25h
+kube-flannel    kube-flannel-ds-22c9z                   1/1     Running     0              25h
+kube-flannel    kube-flannel-ds-ftcqp                   1/1     Running     1 (110m ago)   22h
+kube-flannel    kube-flannel-ds-p2l66                   1/1     Running     1 (110m ago)   25h
+kube-system     coredns-7db6d8ff4d-5bxjw                1/1     Running     1 (110m ago)   26h
+kube-system     coredns-7db6d8ff4d-jprxw                1/1     Running     1 (110m ago)   26h
+kube-system     etcd-infrac1                            1/1     Running     1              26h
+kube-system     kube-apiserver-infrac1                  1/1     Running     1              26h
+kube-system     kube-controller-manager-infrac1         1/1     Running     1              26h
+kube-system     kube-proxy-jjqqv                        1/1     Running     0              26h
+kube-system     kube-proxy-kvn62                        1/1     Running     1 (110m ago)   25h
+kube-system     kube-proxy-zscq2                        1/1     Running     1 (110m ago)   22h
+kube-system     kube-scheduler-infrac1                  1/1     Running     1              26h
+kube-system     nodelocaldns-gf8gb                      1/1     Running     1 (110m ago)   25h
+kube-system     nodelocaldns-hk8f5                      1/1     Running     1 (110m ago)   22h
+kube-system     nodelocaldns-sz4mf                      1/1     Running     0              25h
+metallb         metallb-controller-77cb7f5d88-8qfw7     1/1     Running     1 (110m ago)   25h
+metallb         metallb-speaker-9g2vl                   4/4     Running     0              25h
+metallb         metallb-speaker-rpjrf                   4/4     Running     4 (110m ago)   25h
+metallb         metallb-speaker-vpgr8                   4/4     Running     4 (110m ago)   22h
+minio           mi-0                                    1/1     Running     1 (111m ago)   18h
+minio           mi-1                                    1/1     Running     1 (110m ago)   18h

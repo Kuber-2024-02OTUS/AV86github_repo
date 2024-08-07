@@ -1,0 +1,13 @@
+helm repo add yandex-s3 https://yandex-cloud.github.io/k8s-csi-s3/charts
+
+helm show values yandex-s3/csi-s3
+
+helm install csi-s3 yandex-s3/csi-s3
+
+helm uninstall csi-s3
+
+minio_ac="###"
+minio_sa="###"
+
+
+helm upgrade --install --namespace kube-system csi-s3 yandex-s3/csi-s3 -f ./s3-csi.yaml
